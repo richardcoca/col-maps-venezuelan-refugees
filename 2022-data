@@ -1,0 +1,43 @@
+##Colombia maps##
+#Purpose: To generate maps of Colombia at the department level for inclusion in my thesis using the colmaps package#
+##Jan 24, 2023##
+##R script by Richard Coca##
+
+#Install devtools to install colmaps package
+install.packages("devtools")
+
+#Install and load colmaps package
+devtools::install_github("nebulae-co/colmaps")
+library("colmaps")
+#Change syntax to department instead of municipalities
+
+library("ggplot2")
+#I want to see the head of this departmentos@data set
+head(departamentos@data)
+
+departamentos@data
+colmap(departamentos) +
+  ggtitle("Colombia - Number of Venezuelan refugees per department")
+#I want to find out the codes for this map that match with the departments I have data on
+select(departamentos@data, id, depto)
+#let's put our data on refugees into a vector
+refugees<-c("21875", "64554", "18251", "153923", "3508", "12591", "135059", "80847", "35048", "19069", "253911", "20489", "41767", "109889", "16075", "23459", "193440", "55245", "22748", "11889", "97", "331", "6788", "1680", "15", "9934", "344223", "175265", "495236", "94024", "36928", "17725", "1705")
+venezuelanrefugees<-c(departamentos@data,refugees)
+library(tibble)
+venezuelanrefugees<-add_column(departamentos@data, "refugees", refugees)
+
+
+#Let's check we got it right
+venezuelanrefugees
+head(venezuelanrefugees)
+
+colmap(departamentos, var = "refugees")
+
+#Let's load ggplot2 and dplyr
+
+library("ggplot2")
+library("dplyr")
+library("stats")
+
+gg<- venezuelanrefugees %>%
+  colmap(departamentos, data = ., var = "refugees")
