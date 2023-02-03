@@ -13,5 +13,7 @@ Maternal mortality ratio
 ![image](https://user-images.githubusercontent.com/118022511/216519111-4827e056-9c22-489e-b1aa-10b63a9d3655.png)
 
 Deaths due to malnutrition in La Guijara, 2011-2022
+
 ![image](https://user-images.githubusercontent.com/118022511/216727487-19c66047-71ec-41d0-9241-925466b8b5c4.png)
+
 (Based on data from a Wayuu-led group)
