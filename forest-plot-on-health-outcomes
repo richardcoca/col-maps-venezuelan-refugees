@@ -1,0 +1,31 @@
+##Forest plot for Venezuelan v Colombian infants in Colombia##
+library(ggplot2)
+library(gridExtra)
+
+# Define the data 
+OR <- c(1.28, 1.78, 1.13, 1.76, 0.98, 1.12)
+CI.lower <- c(1.17, 1.43, 1.06, 1.22, 0.84, 0.82)
+CI.upper <- c(1.41, 2.22, 1.21, 2.54, 1.14, 1.54)
+p.value <- c("<0.001", "<0.001", "<0.001", "0.002", "0.789", "0.484")
+outcome <- c("Low birth weight", "Very low birth weight", "Preterm birth", "Extremely preterm birth", "Apgar score < 7 at 1 min", "Apgar score < 7 at 5 min")
+
+# Create a data frame 
+df <- data.frame(Outcome = outcome, OR = OR, CI.lower = CI.lower, CI.upper = CI.upper, p.value = p.value)
+
+# Create a function to draw the forest plot
+forestplot <- function(df) {
+  ggplot(df, aes(x = Outcome, y = OR, ymin = CI.lower, ymax = CI.upper)) +
+    geom_pointrange(size = 2, color = "blue") +
+    geom_hline(yintercept = 1, linetype = "dashed") +
+    scale_y_log10() +
+    coord_flip() +
+    xlab("Odds Ratio") +
+    ylab("Outcome") +
+    ggtitle("Associations between birth outcomes and maternal country of permanent residence") +
+    theme_classic() +
+    geom_text(aes(label = paste("OR:", OR, "\nCI:", round(CI.lower, 2), "-", round(CI.upper, 2), "\np-value:", p.value)), hjust = 1.5, vjust = -0.5)
+}
+
+# Create and display the forest plot
+plot <- forestplot(df)
+plot
