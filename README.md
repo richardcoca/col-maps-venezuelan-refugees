@@ -1,4 +1,4 @@
-# col-maps-venezuelan-refugees
+# Data visualization for Colombia Every Newborn Action Plan  case study
 What started as a way to store my script for generating maps of Colombia, this public repository, now contains all the scripts that I am writing to clean up and visualize all data associated with the Every Newborn Action Plan case study I am working on that focuses on Colombia
 
 Generating a map of the number of venezuelan refugees per department in Colombia
