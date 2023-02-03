@@ -1,0 +1,17 @@
+library(ggplot2)
+library(ggrepel)
+
+df <- data.frame(Year = c(2015, 2016, 2017, 2018),
+                 Colombian_Population = c(53.3, 51.2, 50.6, 44),
+                 Venezuelan_Population = c(0, 495, 276.2, 233.2))
+
+ggplot(df, aes(x = Year, y = Colombian_Population, group = 1, color = "Colombian Population")) +
+  geom_line() +
+  geom_text_repel(aes(label = round(Colombian_Population, 2), color = "Colombian Population"), size = 3, nudge_y = 3) +
+  geom_line(aes(x = Year, y = Venezuelan_Population, color = "Venezuelan Population")) +
+  geom_text_repel(aes(label = round(Venezuelan_Population, 2), color = "Venezuelan Population"), size = 3, nudge_y = -3) +
+  scale_color_manual(values = c("Colombian Population" = "blue", "Venezuelan Population" = "red")) +
+  ggtitle("Maternal Mortality Ratio in the Colombian and Venezuelan populations in Colombia, 2015-2018") +
+  xlab("Year") +
+  ylab("Maternal Deaths per 100,000 Live Births") +
+  theme_classic()
