@@ -1,0 +1,16 @@
+
+# Libraries
+library(ggplot2)
+library(dplyr)
+library(hrbrthemes)
+         
+# Load dataset
+
+
+# Plot
+gg<- ggplot(Number_of_births_in_colombia_for_which_maternal_country_is_venezuela, aes(x=Year, y=`Number of births`)) + 
+  geom_point()
+gg+labs(y= "number of births", x = "Year")
+gg+labs(title= "Number of births in Colombia where maternal country is Venezuela")+geom_line()
+gg+geom_line()
+gg+geom_point()
