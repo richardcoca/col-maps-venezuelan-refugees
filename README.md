@@ -18,3 +18,6 @@ Deaths due to malnutrition in La Guijara, 2011-2022
 ![image](https://user-images.githubusercontent.com/118022511/216727487-19c66047-71ec-41d0-9241-925466b8b5c4.png)
 
 (Based on data from a Wayuu-led group)
+
+Number of foreigners that received healthcare in Colombia
+![image](https://user-images.githubusercontent.com/118022511/227808141-ba8a6c70-1cba-4592-90cc-3e1bcf1f6062.png)
